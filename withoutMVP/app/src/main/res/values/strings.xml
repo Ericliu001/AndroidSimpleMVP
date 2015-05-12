@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AndroidMVP</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_second">SecondActivity</string>
+    <string name="going_left">Going left...</string>
+    <string name="going_right">Going Right...</string>
+</resources>
