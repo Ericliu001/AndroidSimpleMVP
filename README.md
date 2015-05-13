@@ -1,2 +1,10 @@
 # AndroidSimpleMVP
-A simple App to demonstrate the design of Model-View-Presenter in Android 
+A simple App to demonstrate the design of Model-View-Presenter in Android.
+
+Inspired by this post: 
+
+http://philosophicalhacker.com/2015/05/08/how-to-make-our-android-apps-unit-testable-pt-2/
+
+The goal is to move business logics out of Android Components such as Activity, Fragment, Service and place they in POJO java classes, which have no dependency on Android SDK, and these classes are called Presenters. 
+
+As a result, the Presenter classes are Unit Testable and less error prone. 
