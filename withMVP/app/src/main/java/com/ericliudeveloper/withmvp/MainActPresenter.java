@@ -16,11 +16,11 @@ public class MainActPresenter {
     }
 
     MainActFace mMainActFace;
-    ContextWrapper mContext;
+    ContextFace mContext;
     private int progess = 0;
     private final static int REQUEST_CODE = 123;
 
-    public MainActPresenter(MainActFace face, ContextWrapper context){
+    public MainActPresenter(MainActFace face, ContextFace context){
         mMainActFace = face;
         mContext = context;
     }
