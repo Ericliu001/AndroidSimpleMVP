@@ -79,7 +79,7 @@ public class MainActPresenterTests extends TestCase {
         assertEquals("The method to start SetNameActivity has not been called.", true, hasStartedSetNameActivity);
 
         presenter.buttonGoToDoNothingClicked();
-        assertTrue("Could not start DoNothingActivity", hasStartedNothingActivity);
+        assertTrue("Could not start DisplayInfoActivity", hasStartedNothingActivity);
     }
 
 

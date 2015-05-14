@@ -21,7 +21,7 @@
             android:label="@string/title_activity_second" >
         </activity>
         <activity
-            android:name=".DoNothingActivity"
+            android:name=".DisplayInfoActivity"
             android:label="@string/title_activity_do_nothing" >
         </activity>
     </application>
