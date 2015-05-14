@@ -3,11 +3,14 @@ package com.ericliudeveloper.withmvp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-public class DisplayInfoActivity extends ActionBarActivity implements DisplayInfoPresenter.DisplayInfoActFace{
+public class DisplayInfoActivity extends ActionBarActivity implements DisplayInfoPresenter.DisplayInfoActFace, View.OnClickListener {
 
     TextView tvDirecton, tvProgress, tvName;
+    Button btSetDefault, btResetDisplay;
     private DisplayInfoPresenter mPresenter;
 
     @Override
@@ -27,6 +30,12 @@ public class DisplayInfoActivity extends ActionBarActivity implements DisplayInf
         tvDirecton = (TextView) findViewById(R.id.tvDirection);
         tvProgress = (TextView) findViewById(R.id.tvProgress);
         tvName = (TextView) findViewById(R.id.tvName);
+
+        btResetDisplay = (Button) findViewById(R.id.btResetDisplay);
+        btSetDefault = (Button) findViewById(R.id.btSetDefault);
+
+        btResetDisplay.setOnClickListener(this);
+        btSetDefault.setOnClickListener(this);
     }
 
     @Override
@@ -42,5 +51,22 @@ public class DisplayInfoActivity extends ActionBarActivity implements DisplayInf
     @Override
     public void showName(String name) {
         tvName.setText(name);
+    }
+
+    @Override
+    public void onClick(View v) {
+        int id = v.getId();
+
+        switch (id){
+            default:return;
+
+            case R.id.btSetDefault:
+                mPresenter.buttonSetDefaultClicked();
+                break;
+
+            case R.id.btResetDisplay:
+                mPresenter.buttonResetDisplayClicked();
+                break;
+        }
     }
 }

@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-
+/**
+ * haven't created a presenter for this Activity yet.
+ */
 public class SetNameActivity extends ActionBarActivity {
 
     public static final String NAME_FIELD = "name";

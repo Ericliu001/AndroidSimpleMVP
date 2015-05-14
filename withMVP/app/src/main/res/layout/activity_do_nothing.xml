@@ -47,4 +47,28 @@
         android:layout_marginTop="15dp"
         android:gravity="center" />
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reset Display"
+            android:textSize="10sp"
+            android:id="@+id/btResetDisplay"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set Default Values"
+            android:textSize="10sp"
+            android:id="@+id/btSetDefault"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1" />
+    </LinearLayout>
+
 </LinearLayout>

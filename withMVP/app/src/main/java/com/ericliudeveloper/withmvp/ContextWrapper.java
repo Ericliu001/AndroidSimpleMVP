@@ -7,6 +7,11 @@ import android.os.Bundle;
 /**
  * Created by liu on 12/05/15.
  */
+
+/**
+ *  A Wrapper class to hide the real Context Object from Presenters.
+ *  The main reason of doing this is to reduce the Presenters' dependency on Android SDK
+ */
 public class ContextWrapper implements ContextFace {
     Context mContext;
 
