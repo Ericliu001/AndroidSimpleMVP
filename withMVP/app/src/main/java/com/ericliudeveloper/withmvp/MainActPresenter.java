@@ -1,7 +1,5 @@
 package com.ericliudeveloper.withmvp;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 /**
@@ -25,7 +23,7 @@ public class MainActPresenter {
     }
 
     MainActFace mMainActFace;
-    Context mContext;
+    ContextFace mContext;
     private int progess = 0;
     private final static int REQUEST_CODE = 123;
 
@@ -35,7 +33,7 @@ public class MainActPresenter {
      * @param face
      * @param context
      */
-    public MainActPresenter(MainActFace face, Context context){
+    public MainActPresenter(MainActFace face, ContextFace context){
         mMainActFace = face;
         mContext = context;
     }
@@ -64,8 +62,7 @@ public class MainActPresenter {
 
 
     public void buttonGoToDoNothingClicked() {
-        Intent intent = new Intent(mContext, DoNothingActivity.class);
-        mContext.startActivity(intent);
+        mContext.startActivity(DoNothingActivity.class);
     }
 
     /**

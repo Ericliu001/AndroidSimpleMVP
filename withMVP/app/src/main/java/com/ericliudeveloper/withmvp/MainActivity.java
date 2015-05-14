@@ -32,7 +32,7 @@ public class MainActivity extends ActionBarActivity implements MainActPresenter.
         initViews();
 
 
-        mPresenter = new MainActPresenter(MainActivity.this, MainActivity.this);
+        mPresenter = new MainActPresenter(MainActivity.this, new ContextWrapper(MainActivity.this));
     }
 
     private void initViews() {

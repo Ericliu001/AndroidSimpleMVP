@@ -40,24 +40,34 @@ public class MainActPresenterTests extends TestCase {
 
         @Override
         public void startActivityForResult(Class<?> dest, int requestCode) {
-            hasStartedSetNameActivity = true; // set the flag to indicate that start activity method has been called.
+            if (dest.equals(SetNameActivity.class)) {
+                hasStartedSetNameActivity = true; // set the flag to indicate that start activity method has been called.
+            }
         }
     };
 
     /**
      * MockContext class comes with Android SDK,
-     * We can take advantage of it.
+     * Not used here, just to show you that you can use it when you need it.
      */
-    MockContext context = new MockContext() {
+    MockContext mockedContext = new MockContext() {
 
         @Override
         public void startActivity(Intent intent) {
-            hasStartedNothingActivity = true;
+
         }
 
         @Override
         public String getPackageName() {
             return "com.something";
+        }
+    };
+
+    ContextFace context = new ContextFace() {
+        @Override
+        public void startActivity(Class<?> dest) {
+
+            hasStartedNothingActivity = true;
         }
     };
 
