@@ -8,17 +8,13 @@ import android.os.Parcelable;
  */
 public class FirstModel implements Parcelable{
 
-    public static final String KEY_DIRECTION = "direction";
-    private Direction direction;
+
     enum Direction{
         LEFT, RIGHT;
     }
 
-
-    public static final String KEY_PROGRESS = "progress";
+    private Direction direction;
     private int progress;
-
-    public static final String KEY_NAME = "name";
     private String name;
 
     // empty constructor
