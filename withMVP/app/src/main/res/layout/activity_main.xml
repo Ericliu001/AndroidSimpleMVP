@@ -59,9 +59,9 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Go to the Second Activity"
+        android:text="Go to the SetName Activity"
         android:id="@+id/btGoToSecond"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/tvDisplayName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -76,5 +76,14 @@
         android:id="@+id/tvDisplayName"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go to DoNothing Activity"
+        android:id="@+id/btGotoDoNothing"
+        android:layout_below="@+id/btGoToSecond"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

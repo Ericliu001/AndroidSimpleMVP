@@ -8,11 +8,14 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-
+/**
+ * The Activiy serves as the View in MVP;
+ * It is only responsible for handle display and user input.
+ */
 public class MainActivity extends ActionBarActivity implements MainActPresenter.MainActFace, View.OnClickListener {
 
     TextView tvTop, tvDisplayName;
-    Button btLeft, btRight, btGotoSecond, btIncrease;
+    Button btLeft, btRight, btGotoSecond, btGotoDoNothing, btIncrease;
     ProgressBar pbMain;
 //    private int progess;
 //    private final static int REQUEST_CODE = 123;
@@ -29,7 +32,7 @@ public class MainActivity extends ActionBarActivity implements MainActPresenter.
         initViews();
 
 
-        mPresenter = new MainActPresenter(MainActivity.this, new ContextWrapper(MainActivity.this));
+        mPresenter = new MainActPresenter(MainActivity.this, MainActivity.this);
     }
 
     private void initViews() {
@@ -39,6 +42,7 @@ public class MainActivity extends ActionBarActivity implements MainActPresenter.
         btLeft = (Button) findViewById(R.id.btLeft);
         btRight = (Button) findViewById(R.id.btRight);
         btGotoSecond = (Button) findViewById(R.id.btGoToSecond);
+        btGotoDoNothing = (Button) findViewById(R.id.btGotoDoNothing);
         btIncrease = (Button) findViewById(R.id.btIncrease);
 
         pbMain = (ProgressBar) findViewById(R.id.progressBar);
@@ -46,6 +50,7 @@ public class MainActivity extends ActionBarActivity implements MainActPresenter.
         btLeft.setOnClickListener(this);
         btRight.setOnClickListener(this);
         btGotoSecond.setOnClickListener(this);
+        btGotoDoNothing.setOnClickListener(this);
         btIncrease.setOnClickListener(this);
     }
 
@@ -74,13 +79,17 @@ public class MainActivity extends ActionBarActivity implements MainActPresenter.
 
                 mPresenter.buttonGoToSecondClicked();
                 break;
+
+            case R.id.btGotoDoNothing:
+                mPresenter.buttonGoToDoNothingClicked();
+                break;
             default:
                 return;
         }
     }
 
 //    private void startSecondActivity() {
-//        Intent intent = new Intent(this, SecondActivity.class);
+//        Intent intent = new Intent(this, SetNameActivity.class);
 //        startActivityForResult(intent, REQUEST_CODE);
 //    }
 
@@ -91,7 +100,7 @@ public class MainActivity extends ActionBarActivity implements MainActPresenter.
         }
 
 //        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE){
-//            tvDisplayName.setText(data.getStringExtra(SecondActivity.NAME_FIELD));
+//            tvDisplayName.setText(data.getStringExtra(SetNameActivity.NAME_FIELD));
 //        }
     }
 

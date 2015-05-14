@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
-public class SecondActivity extends ActionBarActivity {
+public class SetNameActivity extends ActionBarActivity {
 
     public static final String NAME_FIELD = "name";
     Button btSetName;
@@ -29,7 +29,7 @@ public class SecondActivity extends ActionBarActivity {
             public void onClick(View v) {
                 String userInput = editText.getText().toString();
                 if (TextUtils.isEmpty(userInput)){
-                    AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(SecondActivity.this);
+                    AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(SetNameActivity.this);
 
                     dialogBuilder.setMessage("Name can't be empty");
                     dialogBuilder.setNeutralButton("Ok", null);

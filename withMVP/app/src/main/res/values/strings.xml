@@ -6,4 +6,6 @@
     <string name="title_activity_second">SecondActivity</string>
     <string name="going_left">Going left...</string>
     <string name="going_right">Going Right...</string>
+    <string name="title_activity_do_nothing">DoNothingActivity</string>
+    <string name="do_nothing">We don\'t do anything here</string>
 </resources>
