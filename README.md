@@ -9,4 +9,4 @@ The goal is to move business logics out of Android Components such as Activity, 
 
 As a result, the Presenter classes are Unit Testable and less error prone. 
 
-The class MainActPresenterTest is included in the project to demonstrate how to test against the MainActPresenter class
+The <b>TestCase class MainActPresenterTest</b> is included in the project to demonstrate how to test against the MainActPresenter class
