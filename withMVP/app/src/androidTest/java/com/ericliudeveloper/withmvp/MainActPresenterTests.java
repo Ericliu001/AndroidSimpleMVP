@@ -2,6 +2,7 @@ package com.ericliudeveloper.withmvp;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.os.Bundle;
 import android.test.mock.MockContext;
 import android.test.mock.MockCursor;
 
@@ -18,6 +19,9 @@ public class MainActPresenterTests extends TestCase {
     static final String ERIC_IS_TIRED = "Eric is tired.";
     boolean hasStartedSetNameActivity = false; // flag to indicate if start activity has been called
     boolean hasStartedNothingActivity = false;
+    String mDirection = "";
+    int mProgress;
+    String mName;
 
     /**
      * Mock the Activity.
@@ -25,20 +29,20 @@ public class MainActPresenterTests extends TestCase {
      * alternatively, method calls are only forwarded to Activity through an interface: MainActFace
      */
     MainActPresenter.MainActFace activity = new MainActPresenter.MainActFace() {
-        @Override
-        public void showDirection() {
-        }
 
         @Override
-        public void displayRight() {
+        public void showDirection(String directionMessage) {
+            mDirection = directionMessage;
         }
 
         @Override
         public void showProgress(int progress) {
+            mProgress = progress;
         }
 
         @Override
         public void showName(String name) {
+            mName = name;
         }
 
         @Override
@@ -68,14 +72,14 @@ public class MainActPresenterTests extends TestCase {
 
     ContextFace context = new ContextFace() {
         @Override
-        public void startActivity(Class<?> dest) {
-
+        public void startActivity(Class<?> dest, Bundle data) {
             hasStartedNothingActivity = true;
         }
+
     };
 
 
-    MainActPresenter presenter = new MainActPresenter(activity, cachedData, context);
+    MainActPresenter presenter = new MainActPresenter(activity, null, context);
 
     public void testActivitiesStarted() {
         presenter.buttonGoToSecondClicked();
@@ -83,6 +87,14 @@ public class MainActPresenterTests extends TestCase {
 
         presenter.buttonGoToDoNothingClicked();
         assertTrue("Could not start DisplayInfoActivity", hasStartedNothingActivity);
+    }
+
+
+    public void testMakingProgress(){
+        int oldValue = mProgress;
+        presenter.buttonIncreaseClicked();
+
+        assertEquals("Progress increment value wrong." , 5, mProgress - oldValue);
     }
 
 

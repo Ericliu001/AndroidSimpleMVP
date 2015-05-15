@@ -29,7 +29,7 @@ public class DisplayInfoPresenter implements PresenterFace {
      * There SHOULD NOT be anymore operations on the data in Activity, it should only do the job of displaying data.
      * so the data type that passed to Activity should be directly displayed on the widget.
      */
-    interface DisplayInfoActFace{
+    public interface DisplayInfoActFace{
         void showDirection(String direction);
         void showProgress(String progress);
         void showName(String name);
