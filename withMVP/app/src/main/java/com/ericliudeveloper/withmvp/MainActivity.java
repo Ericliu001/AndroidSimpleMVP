@@ -1,5 +1,6 @@
 package com.ericliudeveloper.withmvp;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -14,6 +15,9 @@ import android.widget.TextView;
  */
 public class MainActivity extends ActionBarActivity implements MainActPresenter.MainActFace, View.OnClickListener {
 
+
+    private static final String TAG_CACHE = "mainActivityCache";
+    CacheModelFragment cacheFragment;
     TextView tvTop, tvDisplayName;
     Button btLeft, btRight, btGotoSecond, btGotoDoNothing, btIncrease;
     ProgressBar pbMain;
@@ -31,8 +35,16 @@ public class MainActivity extends ActionBarActivity implements MainActPresenter.
 
         initViews();
 
+        FragmentManager fm = getFragmentManager();
+        cacheFragment = (CacheModelFragment) fm.findFragmentByTag(TAG_CACHE);
+        if (cacheFragment == null){
+            cacheFragment = new CacheModelFragment();
+            fm.beginTransaction().add(cacheFragment, TAG_CACHE).commit();
+        }
 
-        mPresenter = new MainActPresenter(MainActivity.this, new ContextWrapper(MainActivity.this));
+        Bundle cachedData = cacheFragment.getCachedData();
+
+        mPresenter = new MainActPresenter(MainActivity.this, cachedData, new ContextWrapper(MainActivity.this));
     }
 
     private void initViews() {
@@ -105,22 +117,25 @@ public class MainActivity extends ActionBarActivity implements MainActPresenter.
     }
 
     @Override
-    public void displayLeft() {
-        tvTop.setText(getString(R.string.going_left));
+    protected void onDestroy() {
+        Bundle savedData = mPresenter.getModelData();
+        cacheFragment.setDataToBeCached(savedData);
+        super.onDestroy();
     }
 
     @Override
-    public void displayRight() {
-        tvTop.setText(getString(R.string.going_right));
+    public void showDirection(String directionMessage) {
+        tvTop.setText(directionMessage);
     }
 
+
     @Override
-    public void makeProgress(int progress) {
+    public void showProgress(int progress) {
         pbMain.setProgress(progress);
     }
 
     @Override
-    public void displayName(String name) {
+    public void showName(String name) {
         tvDisplayName.setText(name);
     }
 

@@ -23,7 +23,7 @@ public class MainActPresenterTests extends TestCase {
      */
     MainActPresenter.MainActFace activity = new MainActPresenter.MainActFace() {
         @Override
-        public void displayLeft() {
+        public void showDirection() {
         }
 
         @Override
@@ -31,11 +31,11 @@ public class MainActPresenterTests extends TestCase {
         }
 
         @Override
-        public void makeProgress(int progress) {
+        public void showProgress(int progress) {
         }
 
         @Override
-        public void displayName(String name) {
+        public void showName(String name) {
         }
 
         @Override
@@ -72,7 +72,7 @@ public class MainActPresenterTests extends TestCase {
     };
 
 
-    MainActPresenter presenter = new MainActPresenter(activity, context);
+    MainActPresenter presenter = new MainActPresenter(activity, cachedData, context);
 
     public void testActivitiesStarted() {
         presenter.buttonGoToSecondClicked();

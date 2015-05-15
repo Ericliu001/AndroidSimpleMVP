@@ -7,10 +7,19 @@ import android.os.Bundle;
  * <p/>
  * Presenter in MVP
  */
-public class MainActPresenter {
+public class MainActPresenter implements PresenterFace {
 
     public static final String MAIN_PRESENTER_DATA = "main presenter data";
+    public static final String GOING_LEFT = "Going Left .....";
+    public static final String GOING_RIGHT = "Going Right.....";
     private FirstModel firstModel;
+
+    @Override
+    public Bundle getModelData() {
+        Bundle data = new Bundle();
+        data.putParcelable(MainActPresenter.MAIN_PRESENTER_DATA, firstModel);
+        return data;
+    }
 
     /**
      * The interface for the corresponding Activity to implement;
@@ -18,18 +27,16 @@ public class MainActPresenter {
      * the startActivityForResult(...) method is an exception here because it is tightly coupled with an Activity so we just forward to call to the Activity.
      */
     public interface MainActFace {
-        void displayLeft();
+        void showDirection(String directionMessage);
 
-        void displayRight();
+        void showProgress(int progress);
 
-        void makeProgress(int progress);
-
-        void displayName(String name);
+        void showName(String name);
 
         void startActivityForResult(Class<?> dest, int requestCode);
     }
 
-    MainActFace mMainActFace;
+    MainActFace activity;
     ContextFace mContext;
     private int progess = 0;
     private final static int REQUEST_CODE = 123;
@@ -39,13 +46,30 @@ public class MainActPresenter {
      * or could be Mocked during test, such as: MockCursor, MockContext, MockApplication
      *
      * @param face
+     * @param cachedData
      * @param context
      */
-    public MainActPresenter(MainActFace face, ContextFace context) {
-        mMainActFace = face;
+    public MainActPresenter(MainActFace face, Bundle cachedData, ContextFace context) {
+        activity = face;
         mContext = context;
+        if (cachedData != null) {
+            firstModel = cachedData.getParcelable(MAIN_PRESENTER_DATA);
+        } else {
+            firstModel = new FirstModel();
+        }
 
-        firstModel = new FirstModel();
+        refreshDisplay(firstModel);
+    }
+
+    private void refreshDisplay(FirstModel firstModel) {
+        if (firstModel.getDirection() == FirstModel.Direction.LEFT){
+            activity.showDirection(GOING_LEFT);
+        } else if (firstModel.getDirection() == FirstModel.Direction.RIGHT){
+            activity.showDirection(GOING_RIGHT);
+        }
+
+        activity.showProgress(firstModel.getProgress());
+        activity.showName(firstModel.getName());
     }
 
     /**
@@ -53,25 +77,25 @@ public class MainActPresenter {
      */
     public void buttonLeftClicked() {
 
-        mMainActFace.displayLeft();
+        activity.showDirection(GOING_LEFT);
         firstModel.setDirection(FirstModel.Direction.LEFT);
     }
 
     public void buttonRightClicked() {
 
-        mMainActFace.displayRight();
+        activity.showDirection(GOING_RIGHT);
         firstModel.setDirection(FirstModel.Direction.RIGHT);
     }
 
     public void buttonIncreaseClicked() {
 
-        mMainActFace.makeProgress(progess += 5);
+        activity.showProgress(progess += 5);
         firstModel.setProgress(progess);
     }
 
 
     public void buttonGoToSecondClicked() {
-        mMainActFace.startActivityForResult(SetNameActivity.class, REQUEST_CODE);
+        activity.startActivityForResult(SetNameActivity.class, REQUEST_CODE);
     }
 
 
@@ -90,7 +114,7 @@ public class MainActPresenter {
     public void onActivityResult(int requestCode, Bundle extras) {
         if (requestCode == REQUEST_CODE) {
             String name = extras.getString(SetNameActivity.NAME_FIELD);
-            mMainActFace.displayName(name);
+            activity.showName(name);
             firstModel.setName(name);
         }
     }

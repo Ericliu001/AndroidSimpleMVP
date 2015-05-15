@@ -16,7 +16,6 @@ public class DisplayInfoActivity extends ActionBarActivity implements DisplayInf
     Button btSetDefault, btResetDisplay;
     private DisplayInfoPresenter mPresenter;
     private CacheModelFragment cacheFragment;
-    private Bundle mData; // The Activity should have no idea what the data type is, so a Bundle will be idea for this job
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,17 +31,17 @@ public class DisplayInfoActivity extends ActionBarActivity implements DisplayInf
             fm.beginTransaction().add(cacheFragment, TAG_CACHE).commit();
         }
 
-        mData = cacheFragment.getCachedData();
-        if (mData == null) {
+        Bundle data = cacheFragment.getCachedData();
+        if (data == null) {
             Intent startedIntent = getIntent();
-            mData = startedIntent.getExtras();
+            data = startedIntent.getExtras();
         }
-        mPresenter = new DisplayInfoPresenter(DisplayInfoActivity.this, mData);
+        mPresenter = new DisplayInfoPresenter(DisplayInfoActivity.this, data);
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-        // DO NOT save the data here, it's problematic 
+        // DO NOT save the data here, it's problematic
     }
 
     @Override

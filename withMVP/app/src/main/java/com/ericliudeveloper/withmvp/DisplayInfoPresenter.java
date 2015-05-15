@@ -5,10 +5,12 @@ import android.os.Bundle;
 /**
  * Created by liu on 14/05/15.
  */
-public class DisplayInfoPresenter {
+public class DisplayInfoPresenter implements PresenterFace{
 
     private DisplayInfoActFace activity;
     private FirstModel firstModel;
+
+    @Override
     public Bundle getModelData() {
         Bundle data = new Bundle();
         data.putParcelable(MainActPresenter.MAIN_PRESENTER_DATA, firstModel);
