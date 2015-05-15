@@ -11,7 +11,8 @@ import android.widget.TextView;
 
 /**
  * The Activiy serves as the View in MVP;
- * It is only responsible for handle display and user input.
+ * It is only responsible for handling content display and user input.
+ * The Activity shall have no knowledge of data and business logic.
  */
 public class MainActivity extends ActionBarActivity implements MainActPresenter.MainActFace, View.OnClickListener {
 
@@ -21,8 +22,6 @@ public class MainActivity extends ActionBarActivity implements MainActPresenter.
     TextView tvTop, tvDisplayName;
     Button btLeft, btRight, btGotoSecond, btGotoDoNothing, btIncrease;
     ProgressBar pbMain;
-//    private int progess;
-//    private final static int REQUEST_CODE = 123;
 
     private MainActPresenter mPresenter;
 
@@ -37,14 +36,14 @@ public class MainActivity extends ActionBarActivity implements MainActPresenter.
 
         FragmentManager fm = getFragmentManager();
         cacheFragment = (CacheModelFragment) fm.findFragmentByTag(tag_caching_fragment);
-        if (cacheFragment == null){
+        if (cacheFragment == null) {
             cacheFragment = new CacheModelFragment();
             fm.beginTransaction().add(cacheFragment, tag_caching_fragment).commit();
         }
 
-        Bundle cachedData = cacheFragment.getCachedData();
 
-        mPresenter = new MainActPresenter(MainActivity.this, cachedData, new ContextWrapper(MainActivity.this));
+        // Initialise the Presenter and pass in data
+        mPresenter = new MainActPresenter(MainActivity.this, null, new ContextWrapper(MainActivity.this));
     }
 
     private void initViews() {
@@ -69,29 +68,21 @@ public class MainActivity extends ActionBarActivity implements MainActPresenter.
 
     @Override
     public void onClick(View v) {
+        // Button click events, forwarding all actions to Presenter
         int viewId = v.getId();
         switch (viewId) {
             case R.id.btLeft:
-//                tvTop.setText(getString(R.string.going_left));
-
                 mPresenter.buttonLeftClicked();
                 break;
             case R.id.btRight:
-//                tvTop.setText(getString(R.string.going_right));
-
                 mPresenter.buttonRightClicked();
                 break;
             case R.id.btIncrease:
-//                pbMain.setProgress(progess+=5);
-
                 mPresenter.buttonIncreaseClicked();
                 break;
             case R.id.btGoToSecond:
-//                startSecondActivity();
-
                 mPresenter.buttonGoToSecondClicked();
                 break;
-
             case R.id.btGotoDoNothing:
                 mPresenter.buttonGoToDoNothingClicked();
                 break;
@@ -100,27 +91,29 @@ public class MainActivity extends ActionBarActivity implements MainActPresenter.
         }
     }
 
-//    private void startSecondActivity() {
-//        Intent intent = new Intent(this, SetNameActivity.class);
-//        startActivityForResult(intent, REQUEST_CODE);
-//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
+            // result ok, action needs to be handled, forward it to Presenter
             mPresenter.onActivityResult(requestCode, data.getExtras());
         }
-
-//        if (resultCode == RESULT_OK && requestCode == REQUEST_CODE){
-//            tvDisplayName.setText(data.getStringExtra(SetNameActivity.NAME_FIELD));
-//        }
     }
 
     @Override
-    protected void onDestroy() {
+    protected void onSaveInstanceState(Bundle outState) {
         Bundle savedData = mPresenter.getModelData();
         cacheFragment.setDataToBeCached(savedData);
-        super.onDestroy();
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Bundle cachedData = cacheFragment.getCachedData();
+        if(cachedData != null){
+            mPresenter = new MainActPresenter(MainActivity.this, cachedData, new ContextWrapper(MainActivity.this));
+        }
     }
 
     @Override
