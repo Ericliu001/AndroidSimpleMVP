@@ -38,7 +38,6 @@ public class MainActPresenter implements PresenterFace {
 
     MainActFace activity;
     ContextFace mContext;
-    private int progess = 0;
     private final static int REQUEST_CODE = 123;
 
     /**
@@ -88,7 +87,7 @@ public class MainActPresenter implements PresenterFace {
     }
 
     public void buttonIncreaseClicked() {
-
+        int progess = firstModel.getProgress();
         activity.showProgress(progess += 5);
         firstModel.setProgress(progess);
     }

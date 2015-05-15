@@ -16,7 +16,7 @@ import android.widget.TextView;
 public class MainActivity extends ActionBarActivity implements MainActPresenter.MainActFace, View.OnClickListener {
 
 
-    private static final String TAG_CACHE = "mainActivityCache";
+    private final String tag_caching_fragment = this.getClass().getName();
     CacheModelFragment cacheFragment;
     TextView tvTop, tvDisplayName;
     Button btLeft, btRight, btGotoSecond, btGotoDoNothing, btIncrease;
@@ -36,10 +36,10 @@ public class MainActivity extends ActionBarActivity implements MainActPresenter.
         initViews();
 
         FragmentManager fm = getFragmentManager();
-        cacheFragment = (CacheModelFragment) fm.findFragmentByTag(TAG_CACHE);
+        cacheFragment = (CacheModelFragment) fm.findFragmentByTag(tag_caching_fragment);
         if (cacheFragment == null){
             cacheFragment = new CacheModelFragment();
-            fm.beginTransaction().add(cacheFragment, TAG_CACHE).commit();
+            fm.beginTransaction().add(cacheFragment, tag_caching_fragment).commit();
         }
 
         Bundle cachedData = cacheFragment.getCachedData();

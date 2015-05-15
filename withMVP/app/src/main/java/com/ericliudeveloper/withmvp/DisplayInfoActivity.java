@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class DisplayInfoActivity extends ActionBarActivity implements DisplayInfoPresenter.DisplayInfoActFace, View.OnClickListener {
 
-    private static final String TAG_CACHE = "DisplayInfoCache";
+    private final String tag_caching_fragment = this.getClass().getName();
     TextView tvDirecton, tvProgress, tvName;
     Button btSetDefault, btResetDisplay;
     private DisplayInfoPresenter mPresenter;
@@ -25,10 +25,10 @@ public class DisplayInfoActivity extends ActionBarActivity implements DisplayInf
         initViews();
 
         FragmentManager fm = getFragmentManager();
-        cacheFragment = (CacheModelFragment) fm.findFragmentByTag(TAG_CACHE);
+        cacheFragment = (CacheModelFragment) fm.findFragmentByTag(tag_caching_fragment);
         if (cacheFragment == null){
             cacheFragment = new CacheModelFragment();
-            fm.beginTransaction().add(cacheFragment, TAG_CACHE).commit();
+            fm.beginTransaction().add(cacheFragment, tag_caching_fragment).commit();
         }
 
         Bundle data = cacheFragment.getCachedData();
