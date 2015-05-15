@@ -7,6 +7,7 @@ import android.test.mock.MockContext;
 import android.test.mock.MockCursor;
 
 import com.ericliudeveloper.withmvp.android_object_wrapper.ContextFace;
+import com.ericliudeveloper.withmvp.mode.FirstModel;
 import com.ericliudeveloper.withmvp.presenter.MainActPresenter;
 
 import junit.framework.TestCase;
@@ -22,6 +23,7 @@ public class MainActPresenterTests extends TestCase {
     String mDirection = "";
     int mProgress;
     String mName;
+    Bundle mData;
 
     /**
      * Mock the Activity.
@@ -58,22 +60,18 @@ public class MainActPresenterTests extends TestCase {
      * Not used here, just to show you that you can use it when you need it.
      */
     MockContext mockedContext = new MockContext() {
-
         @Override
-        public void startActivity(Intent intent) {
-
-        }
-
+        public void startActivity(Intent intent) {}
         @Override
         public String getPackageName() {
             return "com.something";
-        }
-    };
+        }};
 
     ContextFace context = new ContextFace() {
         @Override
         public void startActivity(Class<?> dest, Bundle data) {
             hasStartedNothingActivity = true;
+            mData = data;
         }
 
     };
@@ -93,8 +91,27 @@ public class MainActPresenterTests extends TestCase {
     public void testMakingProgress(){
         int oldValue = mProgress;
         presenter.buttonIncreaseClicked();
+        assertEquals("Progress increment value wrong.", 5, mProgress - oldValue);
+    }
 
-        assertEquals("Progress increment value wrong." , 5, mProgress - oldValue);
+    public void testSentModelData(){
+        FirstModel mockData = new FirstModel();
+        mockData.setName("Alex Lockwood");
+        mockData.setProgress(50);
+        mockData.setDirection(FirstModel.Direction.RIGHT);
+        Bundle wrap = new Bundle();
+        wrap.putParcelable(MainActPresenter.MAIN_PRESENTER_DATA, mockData);
+        presenter = new MainActPresenter(activity, wrap, context);
+
+        presenter.buttonGoToDoNothingClicked();
+        if (mData == null){return;}
+
+        FirstModel modelData = mData.getParcelable(MainActPresenter.MAIN_PRESENTER_DATA);
+        FirstModel.Direction direction = modelData.getDirection();
+        int progress = modelData.getProgress();
+        String name = modelData.getName();
+
+        assertSame("The direction in the model data is wrong. ", FirstModel.Direction.RIGHT, direction);
     }
 
 
