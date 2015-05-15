@@ -11,6 +11,7 @@ import android.os.Bundle;
 /**
  *  A Wrapper class to hide the real Context Object from Presenters.
  *  The main reason of doing this is to reduce the Presenters' dependency on Android SDK
+ *  so that we can mock the Context during Unit Test
  */
 public class ContextWrapper implements ContextFace {
     Context mContext;

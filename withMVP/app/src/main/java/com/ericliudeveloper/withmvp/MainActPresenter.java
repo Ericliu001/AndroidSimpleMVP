@@ -14,6 +14,12 @@ public class MainActPresenter implements PresenterFace {
     public static final String GOING_RIGHT = "Going Right.....";
     private FirstModel firstModel;
 
+
+    /**
+     * return the model data as a Bundle, which hides the actual data type from Activity or Fragment
+     *
+     * @return - Model Data Object wrapped in a Bundle
+     */
     @Override
     public Bundle getModelData() {
         Bundle data = new Bundle();
@@ -23,7 +29,7 @@ public class MainActPresenter implements PresenterFace {
 
     /**
      * The interface for the corresponding Activity to implement;
-     * All methods declared here should be responsible for changing the display and only be responsible for that;
+     * All methods declared here should be responsible for changing the displaying contents and be responsible for only that;
      * the startActivityForResult(...) method is an exception here because it is tightly coupled with an Activity so we just forward to call to the Activity.
      */
     public interface MainActFace {
@@ -42,7 +48,8 @@ public class MainActPresenter implements PresenterFace {
 
     /**
      * The parameter passed in here should either be having no dependency on Android SDK
-     * or could be Mocked during test, such as: MockCursor, MockContext, MockApplication
+     * or could be Mocked during test, such as: MockCursor, MockContext, MockApplication.
+     * We use an interface type ContextFace here to hide the real Context Object to de-couple the Presenter to the SDK
      *
      * @param face
      * @param cachedData
@@ -60,10 +67,11 @@ public class MainActPresenter implements PresenterFace {
         refreshDisplay(firstModel);
     }
 
+
     private void refreshDisplay(FirstModel firstModel) {
-        if (firstModel.getDirection() == FirstModel.Direction.LEFT){
+        if (firstModel.getDirection() == FirstModel.Direction.LEFT) {
             activity.showDirection(GOING_LEFT);
-        } else if (firstModel.getDirection() == FirstModel.Direction.RIGHT){
+        } else if (firstModel.getDirection() == FirstModel.Direction.RIGHT) {
             activity.showDirection(GOING_RIGHT);
         }
 
@@ -72,24 +80,29 @@ public class MainActPresenter implements PresenterFace {
     }
 
     /**
-     * handle user button click to dispatch the changing display command to the View in MVP
+     * This method is the perfect example of the use MVP pattern.
+     * The Presenter is responsible for getting & saving data,
+     * dispatching commands to View to change the displaying contents,
+     * and executing business logic and make changes to data.
+     */
+    public void buttonIncreaseClicked() {
+        int progess = firstModel.getProgress(); // get data from Model
+        activity.showProgress(progess += 5);    // dispatch command to View
+        firstModel.setProgress(progess);        // execute business logic
+    }
+
+
+    /**
+     * handle user button clicks to dispatch the changing display command to the View in MVP
      */
     public void buttonLeftClicked() {
-
-        activity.showDirection(GOING_LEFT);
-        firstModel.setDirection(FirstModel.Direction.LEFT);
+        activity.showDirection(GOING_LEFT);         //  dispatch command to change display
+        firstModel.setDirection(FirstModel.Direction.LEFT);  // execute business logic
     }
 
     public void buttonRightClicked() {
-
-        activity.showDirection(GOING_RIGHT);
-        firstModel.setDirection(FirstModel.Direction.RIGHT);
-    }
-
-    public void buttonIncreaseClicked() {
-        int progess = firstModel.getProgress();
-        activity.showProgress(progess += 5);
-        firstModel.setProgress(progess);
+        activity.showDirection(GOING_RIGHT);      //  dispatch command to change display
+        firstModel.setDirection(FirstModel.Direction.RIGHT);  // execute business logic
     }
 
 

@@ -20,6 +20,9 @@ public class DisplayInfoPresenter implements PresenterFace{
 
     /**
      * Data passed to TextView should only be Strings.
+     * The rule of thumb is: View in MVP shall never process data,
+     * all data processing shall be done in Presenter before passing it back to View
+     * ,thus TextView shall only receive Strings.
      *
      * There SHOULD NOT be anymore operations on the data in Activity, it should only do the job of displaying data.
      * so the data type that passed to Activity should be directly displayed on the widget.
@@ -38,7 +41,6 @@ public class DisplayInfoPresenter implements PresenterFace{
     }
 
     private void processInfoData(FirstModel model) {
-
         String direction = "";
         if (model.getDirection() != null){
              direction = model.getDirection().name();
@@ -59,7 +61,6 @@ public class DisplayInfoPresenter implements PresenterFace{
 
 
     public void buttonSetDefaultClicked() {
-
         firstModel = new FirstModel();
         firstModel.setDirection(FirstModel.Direction.LEFT);
         firstModel.setProgress(50);

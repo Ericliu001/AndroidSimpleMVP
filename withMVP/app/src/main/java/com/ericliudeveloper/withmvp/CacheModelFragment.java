@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 public class CacheModelFragment extends Fragment {
 
-    private Bundle cache; // As Fragment is the View in MVP pattern, it should have no knowledge of the data, so a Bundle is idea for this job
+    private Bundle cache; // As Fragment is the View in MVP pattern, it should have no knowledge of the data, so a Bundle is ideal for this job of saving data
 
 
     public void setDataToBeCached(Bundle data){

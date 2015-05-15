@@ -17,8 +17,8 @@ import android.widget.TextView;
 public class MainActivity extends ActionBarActivity implements MainActPresenter.MainActFace, View.OnClickListener {
 
 
-    private final String tag_caching_fragment = this.getClass().getName();
-    CacheModelFragment cacheFragment;
+    private final String tag_caching_fragment = this.getClass().getName(); // the tag is used to retrieve Fragment instance
+    CacheModelFragment cacheFragment; // Fragment to cache data in configuration change
     TextView tvTop, tvDisplayName;
     Button btLeft, btRight, btGotoSecond, btGotoDoNothing, btIncrease;
     ProgressBar pbMain;
@@ -116,10 +116,15 @@ public class MainActivity extends ActionBarActivity implements MainActPresenter.
         }
     }
 
+    /**
+     * Called by Presenter to change displaying content
+     * @param directionMessage
+     */
     @Override
     public void showDirection(String directionMessage) {
         tvTop.setText(directionMessage);
     }
+
 
 
     @Override
@@ -132,6 +137,11 @@ public class MainActivity extends ActionBarActivity implements MainActPresenter.
         tvDisplayName.setText(name);
     }
 
+    /**
+     * Called by Presenter to start another Activity for result.
+     * @param dest - The Activity to start
+     * @param requestCode
+     */
     @Override
     public void startActivityForResult(Class<?> dest, int requestCode) {
         Intent intent = new Intent(MainActivity.this, dest);

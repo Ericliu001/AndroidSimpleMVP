@@ -51,12 +51,6 @@ public class DisplayInfoActivity extends ActionBarActivity implements DisplayInf
         }
     }
 
-    @Override
-    protected void onDestroy() {
-//        Bundle savedData = mPresenter.getModelData();
-//        cacheFragment.setDataToBeCached(savedData);
-        super.onDestroy();
-    }
 
     private void initViews() {
         tvDirecton = (TextView) findViewById(R.id.tvDirection);
