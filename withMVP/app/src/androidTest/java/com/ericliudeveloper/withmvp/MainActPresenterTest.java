@@ -15,7 +15,7 @@ import junit.framework.TestCase;
 /**
  * Created by eric.liu on 13/05/15.
  */
-public class MainActPresenterTests extends TestCase {
+public class MainActPresenterTest extends TestCase {
 
     static final String ERIC_IS_TIRED = "Eric is tired.";
     boolean hasStartedSetNameActivity = false; // flag to indicate if start activity has been called
