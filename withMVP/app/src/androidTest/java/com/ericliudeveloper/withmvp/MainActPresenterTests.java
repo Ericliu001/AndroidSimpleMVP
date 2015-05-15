@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.test.mock.MockContext;
 import android.test.mock.MockCursor;
 
+import com.ericliudeveloper.withmvp.presenter.MainActPresenter;
+
 import junit.framework.TestCase;
 
 /**

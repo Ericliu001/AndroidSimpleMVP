@@ -1,6 +1,12 @@
-package com.ericliudeveloper.withmvp;
+package com.ericliudeveloper.withmvp.presenter;
 
 import android.os.Bundle;
+
+import com.ericliudeveloper.withmvp.ContextFace;
+import com.ericliudeveloper.withmvp.DisplayInfoActivity;
+import com.ericliudeveloper.withmvp.FirstModel;
+import com.ericliudeveloper.withmvp.PresenterFace;
+import com.ericliudeveloper.withmvp.SetNameActivity;
 
 /**
  * Created by liu on 12/05/15.

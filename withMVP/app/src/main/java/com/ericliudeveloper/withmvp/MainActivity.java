@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.ericliudeveloper.withmvp.presenter.MainActPresenter;
+
 /**
  * The Activiy serves as the View in MVP;
  * It is only responsible for handling content display and user input.

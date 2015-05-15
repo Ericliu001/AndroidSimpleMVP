@@ -1,11 +1,14 @@
-package com.ericliudeveloper.withmvp;
+package com.ericliudeveloper.withmvp.presenter;
 
 import android.os.Bundle;
+
+import com.ericliudeveloper.withmvp.FirstModel;
+import com.ericliudeveloper.withmvp.PresenterFace;
 
 /**
  * Created by liu on 14/05/15.
  */
-public class DisplayInfoPresenter implements PresenterFace{
+public class DisplayInfoPresenter implements PresenterFace {
 
     private DisplayInfoActFace activity;
     private FirstModel firstModel;

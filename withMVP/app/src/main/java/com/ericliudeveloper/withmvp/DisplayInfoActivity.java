@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.ericliudeveloper.withmvp.presenter.DisplayInfoPresenter;
+
 public class DisplayInfoActivity extends ActionBarActivity implements DisplayInfoPresenter.DisplayInfoActFace, View.OnClickListener {
 
     private final String tag_caching_fragment = this.getClass().getName();
