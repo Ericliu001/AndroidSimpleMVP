@@ -1,7 +1,9 @@
 package com.ericliudeveloper.withmvp;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
@@ -9,9 +11,12 @@ import android.widget.TextView;
 
 public class DisplayInfoActivity extends ActionBarActivity implements DisplayInfoPresenter.DisplayInfoActFace, View.OnClickListener {
 
+    private static final String TAG_CACHE = "DisplayInfoCache";
     TextView tvDirecton, tvProgress, tvName;
     Button btSetDefault, btResetDisplay;
     private DisplayInfoPresenter mPresenter;
+    private CacheModelFragment cacheFragment;
+    private Bundle mData; // The Activity should have no idea what the data type is, so a Bundle will be idea for this job
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +25,31 @@ public class DisplayInfoActivity extends ActionBarActivity implements DisplayInf
 
         initViews();
 
-        Intent startedIntent = getIntent();
-        Bundle data = startedIntent.getExtras();
+        FragmentManager fm = getFragmentManager();
+        cacheFragment = (CacheModelFragment) fm.findFragmentByTag(TAG_CACHE);
+        if (cacheFragment == null){
+            cacheFragment = new CacheModelFragment();
+            fm.beginTransaction().add(cacheFragment, TAG_CACHE).commit();
+        }
 
-        mPresenter = new DisplayInfoPresenter(DisplayInfoActivity.this, data);
+        mData = cacheFragment.getCachedData();
+        if (mData == null) {
+            Intent startedIntent = getIntent();
+            mData = startedIntent.getExtras();
+        }
+        mPresenter = new DisplayInfoPresenter(DisplayInfoActivity.this, mData);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        // DO NOT save the data here, it's problematic 
+    }
+
+    @Override
+    protected void onDestroy() {
+        Bundle savedData = mPresenter.getModelData();
+        cacheFragment.setDataToBeCached(savedData);
+        super.onDestroy();
     }
 
     private void initViews() {
@@ -37,6 +63,8 @@ public class DisplayInfoActivity extends ActionBarActivity implements DisplayInf
         btResetDisplay.setOnClickListener(this);
         btSetDefault.setOnClickListener(this);
     }
+
+
 
     @Override
     public void showDirection(String direction) {
@@ -69,4 +97,6 @@ public class DisplayInfoActivity extends ActionBarActivity implements DisplayInf
                 break;
         }
     }
+
+
 }

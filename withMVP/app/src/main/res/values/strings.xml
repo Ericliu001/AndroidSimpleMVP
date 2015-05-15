@@ -8,4 +8,7 @@
     <string name="going_right">Going Right...</string>
     <string name="title_activity_do_nothing">DoNothingActivity</string>
     <string name="do_nothing">Display Info from MainActivity</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

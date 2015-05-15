@@ -8,8 +8,12 @@ import android.os.Bundle;
 public class DisplayInfoPresenter {
 
     private DisplayInfoActFace activity;
-
-
+    private FirstModel firstModel;
+    public Bundle getModelData() {
+        Bundle data = new Bundle();
+        data.putParcelable(MainActPresenter.MAIN_PRESENTER_DATA, firstModel);
+        return data;
+    }
 
 
     /**
@@ -27,20 +31,20 @@ public class DisplayInfoPresenter {
     public DisplayInfoPresenter(DisplayInfoActFace activity, Bundle data){
         this.activity = activity;
 
-        processInfoData(data);
+        firstModel = data.getParcelable(MainActPresenter.MAIN_PRESENTER_DATA);
+        processInfoData(firstModel);
     }
 
-    private void processInfoData(Bundle data) {
-        FirstModel firstModel = data.getParcelable(MainActPresenter.MAIN_PRESENTER_DATA);
+    private void processInfoData(FirstModel model) {
 
         String direction = "";
-        if (firstModel.getDirection() != null){
-             direction = firstModel.getDirection().name();
+        if (model.getDirection() != null){
+             direction = model.getDirection().name();
         }
 
 
-        String progress = String.valueOf(firstModel.getProgress());
-        String name = firstModel.getName();
+        String progress = String.valueOf(model.getProgress());
+        String name = model.getName();
 
         refreshDisplay(direction, progress, name);
     }
@@ -53,10 +57,17 @@ public class DisplayInfoPresenter {
 
 
     public void buttonSetDefaultClicked() {
-        refreshDisplay("No Direction", "100", "Eric Liu");
+
+        firstModel = new FirstModel();
+        firstModel.setDirection(FirstModel.Direction.LEFT);
+        firstModel.setProgress(50);
+        firstModel.setName("Eric Liu");
+
+        processInfoData(firstModel);
     }
 
     public void buttonResetDisplayClicked() {
-        refreshDisplay("", "", "");
+        firstModel = new FirstModel();
+        processInfoData(firstModel);
     }
 }
