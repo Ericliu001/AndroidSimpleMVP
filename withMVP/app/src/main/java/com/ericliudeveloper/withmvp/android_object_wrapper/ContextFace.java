@@ -1,4 +1,4 @@
-package com.ericliudeveloper.withmvp;
+package com.ericliudeveloper.withmvp.android_object_wrapper;
 
 import android.os.Bundle;
 

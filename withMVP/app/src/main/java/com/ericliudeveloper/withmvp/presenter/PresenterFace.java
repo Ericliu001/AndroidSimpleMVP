@@ -1,6 +1,8 @@
-package com.ericliudeveloper.withmvp;
+package com.ericliudeveloper.withmvp.presenter;
 
 import android.os.Bundle;
+
+import com.ericliudeveloper.withmvp.CacheModelFragment;
 
 /**
  * Created by eric.liu on 15/05/15.

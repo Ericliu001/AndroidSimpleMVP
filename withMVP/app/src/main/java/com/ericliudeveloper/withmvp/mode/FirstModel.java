@@ -1,4 +1,4 @@
-package com.ericliudeveloper.withmvp;
+package com.ericliudeveloper.withmvp.mode;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -9,7 +9,7 @@ import android.os.Parcelable;
 public class FirstModel implements Parcelable{
 
 
-    enum Direction{
+    public enum Direction{
         LEFT, RIGHT;
     }
 

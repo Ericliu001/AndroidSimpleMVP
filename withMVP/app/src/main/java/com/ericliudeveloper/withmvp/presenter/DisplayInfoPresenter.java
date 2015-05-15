@@ -2,8 +2,7 @@ package com.ericliudeveloper.withmvp.presenter;
 
 import android.os.Bundle;
 
-import com.ericliudeveloper.withmvp.FirstModel;
-import com.ericliudeveloper.withmvp.PresenterFace;
+import com.ericliudeveloper.withmvp.mode.FirstModel;
 
 /**
  * Created by liu on 14/05/15.

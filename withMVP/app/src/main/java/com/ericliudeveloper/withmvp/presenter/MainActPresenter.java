@@ -2,10 +2,9 @@ package com.ericliudeveloper.withmvp.presenter;
 
 import android.os.Bundle;
 
-import com.ericliudeveloper.withmvp.ContextFace;
+import com.ericliudeveloper.withmvp.android_object_wrapper.ContextFace;
 import com.ericliudeveloper.withmvp.DisplayInfoActivity;
-import com.ericliudeveloper.withmvp.FirstModel;
-import com.ericliudeveloper.withmvp.PresenterFace;
+import com.ericliudeveloper.withmvp.mode.FirstModel;
 import com.ericliudeveloper.withmvp.SetNameActivity;
 
 /**

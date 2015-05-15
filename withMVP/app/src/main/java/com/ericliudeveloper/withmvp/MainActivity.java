@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.ericliudeveloper.withmvp.android_object_wrapper.ContextWrapper;
 import com.ericliudeveloper.withmvp.presenter.MainActPresenter;
 
 /**
