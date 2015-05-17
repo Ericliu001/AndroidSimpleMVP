@@ -2,7 +2,6 @@ package com.ericliudeveloper.mvpevent;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
@@ -10,8 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import de.greenrobot.event.EventBus;
+
 /**
  * haven't created a presenter for this Activity yet.
+ * For simple Activities or Fragments, there is no need to implement MVP
  */
 public class SetNameActivity extends ActionBarActivity {
 
@@ -40,9 +42,11 @@ public class SetNameActivity extends ActionBarActivity {
                     return;
                 }
 
-                Intent intent = getIntent(); // recycle intent
-                intent.putExtra(NAME_FIELD, userInput);
-                setResult(RESULT_OK, intent);
+//                Intent intent = getIntent(); // recycle intent
+//                intent.putExtra(NAME_FIELD, userInput);
+//                setResult(RESULT_OK, intent);
+
+                EventBus.getDefault().postSticky(new MyEvents.NameSetEvent(userInput));
                 finish();
             }
         });

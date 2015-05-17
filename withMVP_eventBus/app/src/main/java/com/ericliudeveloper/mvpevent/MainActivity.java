@@ -1,153 +1,37 @@
 package com.ericliudeveloper.mvpevent;
 
+import android.app.Activity;
 import android.app.FragmentManager;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-
-import com.ericliudeveloper.mvpevent.android_object_wrapper.ContextWrapper;
-import com.ericliudeveloper.mvpevent.presenter.MainActPresenter;
 
 /**
  * The Activiy serves as the View in MVP;
  * It is only responsible for handling content display and user input.
  * The Activity shall have no knowledge of data and business logic.
  */
-public class MainActivity extends ActionBarActivity implements MainActPresenter.MainActFace, View.OnClickListener {
+public class MainActivity extends Activity {
 
 
-    private final String tag_caching_fragment = this.getClass().getName(); // the tag is used to retrieve Fragment instance
-    CacheModelFragment cacheFragment; // Fragment to cache data in configuration change
-    TextView tvTop, tvDisplayName;
-    Button btLeft, btRight, btGotoSecond, btGotoDoNothing, btIncrease;
-    ProgressBar pbMain;
-
-    private MainActPresenter mPresenter;
+    private final String tag_caching_fragment = this.getClass().getName() + "cache"; // the tag is used to retrieve Fragment instance
+    private final String tag_main_fragment = this.getClass().getName() + "main"; // the tag is used to retrieve Fragment instance
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.empty_container);
 
-
-        initViews();
 
         FragmentManager fm = getFragmentManager();
-        cacheFragment = (CacheModelFragment) fm.findFragmentByTag(tag_caching_fragment);
-        if (cacheFragment == null) {
-            cacheFragment = new CacheModelFragment();
-            fm.beginTransaction().add(cacheFragment, tag_caching_fragment).commit();
+
+
+        MainFragment mainFragment = (MainFragment) fm.findFragmentByTag(tag_main_fragment);
+        if (mainFragment == null){
+            mainFragment = new MainFragment();
+            fm.beginTransaction().add(R.id.container, mainFragment, tag_main_fragment).commit();
         }
 
 
-        // Initialise the Presenter and pass in data
-        mPresenter = new MainActPresenter(MainActivity.this, null, new ContextWrapper(MainActivity.this));
     }
 
-    private void initViews() {
-        tvTop = (TextView) findViewById(R.id.tvTop);
-        tvDisplayName = (TextView) findViewById(R.id.tvDisplayName);
-
-        btLeft = (Button) findViewById(R.id.btLeft);
-        btRight = (Button) findViewById(R.id.btRight);
-        btGotoSecond = (Button) findViewById(R.id.btGoToSecond);
-        btGotoDoNothing = (Button) findViewById(R.id.btGotoDoNothing);
-        btIncrease = (Button) findViewById(R.id.btIncrease);
-
-        pbMain = (ProgressBar) findViewById(R.id.progressBar);
-
-        btLeft.setOnClickListener(this);
-        btRight.setOnClickListener(this);
-        btGotoSecond.setOnClickListener(this);
-        btGotoDoNothing.setOnClickListener(this);
-        btIncrease.setOnClickListener(this);
-    }
-
-
-    @Override
-    public void onClick(View v) {
-        // Button click events, forwarding all actions to Presenter
-        int viewId = v.getId();
-        switch (viewId) {
-            case R.id.btLeft:
-                mPresenter.buttonLeftClicked();
-                break;
-            case R.id.btRight:
-                mPresenter.buttonRightClicked();
-                break;
-            case R.id.btIncrease:
-                mPresenter.buttonIncreaseClicked();
-                break;
-            case R.id.btGoToSecond:
-                mPresenter.buttonGoToSecondClicked();
-                break;
-            case R.id.btGotoDoNothing:
-                mPresenter.buttonGoToDoNothingClicked();
-                break;
-            default:
-                return;
-        }
-    }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            // result ok, action needs to be handled, forward it to Presenter
-            mPresenter.onActivityResult(requestCode, data.getExtras());
-        }
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        Bundle savedData = mPresenter.getModelData();
-        cacheFragment.setDataToBeCached(savedData);
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        Bundle cachedData = cacheFragment.getCachedData();
-        if(cachedData != null){
-            mPresenter = new MainActPresenter(MainActivity.this, cachedData, new ContextWrapper(MainActivity.this));
-        }
-    }
-
-    /**
-     * Called by Presenter to change displaying content
-     * @param directionMessage
-     */
-    @Override
-    public void showDirection(String directionMessage) {
-        tvTop.setText(directionMessage);
-    }
-
-
-
-    @Override
-    public void showProgress(int progress) {
-        pbMain.setProgress(progress);
-    }
-
-    @Override
-    public void showName(String name) {
-        tvDisplayName.setText(name);
-    }
-
-    /**
-     * Called by Presenter to start another Activity for result.
-     * @param dest - The Activity to start
-     * @param requestCode
-     */
-    @Override
-    public void startActivityForResult(Class<?> dest, int requestCode) {
-        Intent intent = new Intent(MainActivity.this, dest);
-        startActivityForResult(intent, requestCode);
-    }
 }

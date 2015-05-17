@@ -2,10 +2,13 @@ package com.ericliudeveloper.mvpevent.presenter;
 
 import android.os.Bundle;
 
+import com.ericliudeveloper.mvpevent.MyEvents;
 import com.ericliudeveloper.mvpevent.android_object_wrapper.ContextFace;
 import com.ericliudeveloper.mvpevent.DisplayInfoActivity;
 import com.ericliudeveloper.mvpevent.mode.FirstModel;
 import com.ericliudeveloper.mvpevent.SetNameActivity;
+
+import de.greenrobot.event.EventBus;
 
 /**
  * Created by liu on 12/05/15.
@@ -32,6 +35,23 @@ public class MainActPresenter implements PresenterFace {
         return data;
     }
 
+    public void register() {
+        EventBus.getDefault().registerSticky(this);
+    }
+
+    public void unregister() {
+        EventBus.getDefault().unregister(this);
+    }
+
+    public void onEvent(MyEvents.NameSetEvent event){
+        setNameAndShow(event.name);
+    }
+
+    private void setNameAndShow(String name) {
+        firstModel.setName(name);
+        activity.showName(name);
+    }
+
     /**
      * The interface for the corresponding Activity to implement;
      * All methods declared here should be responsible for changing the displaying contents and be responsible for only that;
@@ -44,7 +64,6 @@ public class MainActPresenter implements PresenterFace {
 
         void showName(String name);
 
-        void startActivityForResult(Class<?> dest, int requestCode);
     }
 
     MainActFace activity;
@@ -69,6 +88,10 @@ public class MainActPresenter implements PresenterFace {
             firstModel = new FirstModel();
         }
 
+//        refreshDisplay(firstModel);
+    }
+
+    public void onPostViewCreated(){
         refreshDisplay(firstModel);
     }
 
@@ -112,7 +135,7 @@ public class MainActPresenter implements PresenterFace {
 
 
     public void buttonGoToSecondClicked() {
-        activity.startActivityForResult(SetNameActivity.class, REQUEST_CODE);
+        mContext.startActivity(SetNameActivity.class, null);
     }
 
 

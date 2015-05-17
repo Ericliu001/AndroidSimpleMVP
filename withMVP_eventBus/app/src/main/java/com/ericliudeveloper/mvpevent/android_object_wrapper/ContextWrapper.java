@@ -9,14 +9,14 @@ import android.os.Bundle;
  */
 
 /**
- *  A Wrapper class to hide the real Context Object from Presenters.
- *  The main reason of doing this is to reduce the Presenters' dependency on Android SDK
- *  so that we can mock the Context during Unit Test
+ * A Wrapper class to hide the real Context Object from Presenters.
+ * The main reason of doing this is to reduce the Presenters' dependency on Android SDK
+ * so that we can mock the Context during Unit Test
  */
 public class ContextWrapper implements ContextFace {
     Context mContext;
 
-    public ContextWrapper(Context context){
+    public ContextWrapper(Context context) {
         mContext = context;
     }
 
@@ -24,7 +24,9 @@ public class ContextWrapper implements ContextFace {
     @Override
     public void startActivity(Class<?> dest, Bundle data) {
         Intent intent = new Intent(mContext, dest);
-        intent.putExtras(data);
+        if (data != null) {
+            intent.putExtras(data);
+        }
         mContext.startActivity(intent);
     }
 
