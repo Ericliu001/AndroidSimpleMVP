@@ -2,6 +2,7 @@ package com.ericliudeveloper.mvpevent;
 
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +31,11 @@ public class DisplayInfoFragment extends Fragment implements DisplayInfoPresente
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-        mPresenter = new DisplayInfoPresenter(DisplayInfoFragment.this, getArguments());
+
+
+        Intent startedIntent = getActivity().getIntent();
+        Bundle data = startedIntent.getExtras();
+        mPresenter = new DisplayInfoPresenter(DisplayInfoFragment.this, data);
     }
 
     @Override
@@ -60,11 +65,6 @@ public class DisplayInfoFragment extends Fragment implements DisplayInfoPresente
         mPresenter.onPostViewCreated();
     }
 
-    public static DisplayInfoFragment newInstance(Bundle data) {
-        DisplayInfoFragment fragment = new DisplayInfoFragment();
-        fragment.setArguments(data);
-        return fragment;
-    }
 
     @Override
     public void showDirection(String direction) {
