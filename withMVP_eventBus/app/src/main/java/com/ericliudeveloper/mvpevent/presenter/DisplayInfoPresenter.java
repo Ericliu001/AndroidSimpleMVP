@@ -39,7 +39,7 @@ public class DisplayInfoPresenter implements PresenterFace {
         this.activity = activity;
 
         firstModel = data.getParcelable(MainActPresenter.MAIN_PRESENTER_DATA);
-        processInfoData(firstModel);
+
     }
 
     private void processInfoData(FirstModel model) {
@@ -53,6 +53,11 @@ public class DisplayInfoPresenter implements PresenterFace {
         String name = model.getName();
 
         refreshDisplay(direction, progress, name);
+    }
+
+
+    public void onPostViewCreated(){
+        processInfoData(firstModel);
     }
 
     private void refreshDisplay(String direction, String progress, String name) {
