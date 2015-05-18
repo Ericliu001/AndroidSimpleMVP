@@ -15,7 +15,7 @@ import com.ericliudeveloper.mvpevent.presenter.DisplayInfoPresenter;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DisplayInfoFragment extends Fragment implements DisplayInfoPresenter.DisplayInfoActFace, View.OnClickListener {
+public class DisplayInfoFragment extends Fragment implements DisplayInfoPresenter.DisplayInfoFace, View.OnClickListener {
     TextView tvDirecton, tvProgress, tvName;
     Button btSetDefault, btResetDisplay;
     private DisplayInfoPresenter mPresenter;

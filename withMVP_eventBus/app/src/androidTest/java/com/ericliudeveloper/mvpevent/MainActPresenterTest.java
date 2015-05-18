@@ -28,9 +28,9 @@ public class MainActPresenterTest extends TestCase {
     /**
      * Mock the Activity.
      * It could be done because Presenter doesn't call methods in Activity directly,
-     * alternatively, method calls are only forwarded to Activity through an interface: MainActFace
+     * alternatively, method calls are only forwarded to Activity through an interface: MainFace
      */
-    MainActPresenter.MainActFace activity = new MainActPresenter.MainActFace() {
+    MainActPresenter.MainFace activity = new MainActPresenter.MainFace() {
 
         @Override
         public void showDirection(String directionMessage) {

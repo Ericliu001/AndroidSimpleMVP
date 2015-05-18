@@ -9,7 +9,7 @@ import com.ericliudeveloper.mvpevent.mode.FirstModel;
  */
 public class DisplayInfoPresenter implements PresenterFace {
 
-    private DisplayInfoActFace activity;
+    private DisplayInfoFace fragment;
     private FirstModel firstModel;
 
     @Override
@@ -29,14 +29,14 @@ public class DisplayInfoPresenter implements PresenterFace {
      * There SHOULD NOT be anymore operations on the data in Activity, it should only do the job of displaying data.
      * so the data type that passed to Activity should be directly displayed on the widget.
      */
-    public interface DisplayInfoActFace{
+    public interface DisplayInfoFace {
         void showDirection(String direction);
         void showProgress(String progress);
         void showName(String name);
     }
 
-    public DisplayInfoPresenter(DisplayInfoActFace activity, Bundle data){
-        this.activity = activity;
+    public DisplayInfoPresenter(DisplayInfoFace activity, Bundle data){
+        this.fragment = activity;
 
         firstModel = data.getParcelable(MainActPresenter.MAIN_PRESENTER_DATA);
 
@@ -55,15 +55,15 @@ public class DisplayInfoPresenter implements PresenterFace {
         refreshDisplay(direction, progress, name);
     }
 
-
+    @Override
     public void onPostViewCreated(){
         processInfoData(firstModel);
     }
 
     private void refreshDisplay(String direction, String progress, String name) {
-        activity.showDirection(direction);
-        activity.showProgress(progress);
-        activity.showName(name);
+        fragment.showDirection(direction);
+        fragment.showProgress(progress);
+        fragment.showName(name);
     }
 
 

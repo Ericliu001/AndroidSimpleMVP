@@ -18,7 +18,7 @@ import com.ericliudeveloper.mvpevent.presenter.MainActPresenter;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MainFragment extends Fragment implements MainActPresenter.MainActFace, View.OnClickListener {
+public class MainFragment extends Fragment implements MainActPresenter.MainFace, View.OnClickListener {
 
     TextView tvTop, tvDisplayName;
     Button btLeft, btRight, btGotoSecond, btGotoDoNothing, btIncrease;

@@ -18,4 +18,6 @@ public interface PresenterFace {
      * @return
      */
     Bundle getModelData();
+
+    void onPostViewCreated();
 }
