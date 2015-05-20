@@ -46,7 +46,6 @@ public class MyProvider extends ContentProvider {
 
             case FIRST_MODELS_ID:
                 return ProviderContract.FirstModels.CONTENT_ITEM_TYPE;
-            break;
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
@@ -83,6 +82,17 @@ public class MyProvider extends ContentProvider {
 
     @Override
     public Uri insert(Uri uri, ContentValues values) {
+        final SQLiteDatabase db = mOpenHelper.getWritableDatabase();
+        final int match = sUriMatcher.match(uri);
+
+        switch (match) {
+            case FIRST_MODELS:
+                long id = db.insertOrThrow(FirstModelTable.TABLE_FIRSTMODEL, null, values);
+                getContext().getContentResolver().notifyChange(uri, null);
+                return Uri.withAppendedPath(ProviderContract.FirstModels.CONTENT_URI, String.valueOf(id));
+
+        }
+
         return null;
     }
 
