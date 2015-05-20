@@ -1,4 +1,4 @@
-package com.ericliudeveloper.mvpevent;
+package com.ericliudeveloper.mvpevent.ui;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -8,6 +8,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.ericliudeveloper.mvpevent.MyEvents;
+import com.ericliudeveloper.mvpevent.R;
 
 import de.greenrobot.event.EventBus;
 

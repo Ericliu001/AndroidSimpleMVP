@@ -4,9 +4,9 @@ import android.os.Bundle;
 
 import com.ericliudeveloper.mvpevent.MyEvents;
 import com.ericliudeveloper.mvpevent.android_object_wrapper.ContextFace;
-import com.ericliudeveloper.mvpevent.DisplayInfoActivity;
+import com.ericliudeveloper.mvpevent.ui.DisplayInfoActivity;
 import com.ericliudeveloper.mvpevent.mode.FirstModel;
-import com.ericliudeveloper.mvpevent.SetNameActivity;
+import com.ericliudeveloper.mvpevent.ui.SetNameActivity;
 
 import de.greenrobot.event.EventBus;
 

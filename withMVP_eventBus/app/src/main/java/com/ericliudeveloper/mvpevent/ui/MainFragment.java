@@ -1,4 +1,4 @@
-package com.ericliudeveloper.mvpevent;
+package com.ericliudeveloper.mvpevent.ui;
 
 
 import android.app.Fragment;
@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.ericliudeveloper.mvpevent.R;
 import com.ericliudeveloper.mvpevent.android_object_wrapper.ContextWrapper;
 import com.ericliudeveloper.mvpevent.presenter.MainActPresenter;
 

@@ -1,8 +1,10 @@
-package com.ericliudeveloper.mvpevent;
+package com.ericliudeveloper.mvpevent.ui;
 
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.os.Bundle;
+
+import com.ericliudeveloper.mvpevent.R;
 
 /**
  * The Activiy serves as the View in MVP;
