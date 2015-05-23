@@ -1,0 +1,66 @@
+﻿purchase=Αγορά
+play=Παίξε
+help=Βοήθεια
+back=Πίσω
+language=Γλώσσα
+save=Αποθήκευση
+exit=Έξοδος
+continue=Συνέχεια
+cancel=Ακύρωση
+alsoavailable=Διαθέσιμα επίσης
+moregames=Περισσότερα παιχνίδια
+purchaseoptions=Επιλογές αγοράς
+learnmore=Μάθετε για τα παιχνίδια
+login=Σύνδεση
+loginfailed=EL Unable to log in
+username=Όνομα χρήστη
+password=Κωδικός πρόσβασης
+error=Error
+discovergames=Αναζήτηση παιχνιδιών
+thankyou=Σας ευχαριστούμε. Η συναλλαγή σας είναι σε εξέλιξη.
+validating=Γίνεται έλεγχος της συνδρομής σας πριν την πρόσβαση στα παιχνίδια του Vodafone 360. Σύντομα τα παιχνίδια θα είναι στην διάθεσή σας.
+errortransaction=Λυπούμαστε, η συναλλαγή σας δεν ολοκληρώθηκε. Για να έχετε πρόσβαση στα παιχνίδια του Vodafone 360 πρέπει πρώτα να γίνει έλεγχος της συνδρομής σας. Παρακαλούμε επιτρέψτε την σύνδεση δικτύου όταν σας ζητηθεί.\nΑν το πρόβλημα επιμένει, παρακαλούμε ελέγξτε την διαθεσιμότητα πακέτων δεδομένων και τις ρυθμίσεις της συσκευής σας.\nΓια να ζητήσετε επιπλέον βοήθεια επικοινωνήστε με το τμήμα Εξυπηρέτησης Πελατών της Vodafone.
+errorpurchaseshort=Λυπούμαστε, η συναλλαγή σας δεν ολοκληρώθηκε. Ο λογαριασμός σας δεν έχει χρεωθεί. Παρακαλώ επαναλάβετε την διαδικασία. Αν το πρόβλημα επιμένει επικοινωνήστε με το τμήμα Εξυπηρέτησης Πελατών της Vodafone.
+errorpurchaselong=Λυπούμαστε, η συναλλαγή σας δεν ολοκληρώθηκε. Ο λογαριασμός σας δεν έχει χρεωθεί. Παρακαλούμε επιτρέψτε την σύνδεση δικτύου όταν σας ζητηθεί.\nΑν το πρόβλημα επιμένει, παρακαλούμε ελέγξτε την διαθεσιμότητα πακέτων δεδομένων και τις ρυθμίσεις της συσκευής σας. Για να ζητήσετε επιπλέον βοήθεια επικοινωνήστε με το τμήμα Εξυπηρέτησης Πελατών της Vodafone.
+errorconnection=A successful network connection to check if your subscription is still valid was not possible. Please ensure that this game can use a network connection to check your subscription! If you have allowed a network connection for this game and this problem persists, please go to VF Shop and download the game, again!
+errorcredentials=EL This might be because\n\nYou've entered the wrong username or password\n\nOnce you've logged in, you can use all the Vodafone 360 services\n\nTap Continue to try again
+gameinvalid=This Game is no more available within Vodafone Play. Please choose one of the other exciting games from Vodafone Play by clicking on one of the games below. You can also visit our shop to find out about more games available for you within Vodafone Play.
+limitedplay=A successful network connection to check if your subscription is still valid was not possible. You may play this game for a limited time. Please ensure that this game can use a network connection to check your subscription! If you have allowed a network connection for this game and this problem persists, please go to VF Shop and download the game, again!
+loginrequired=Για να επικυρώσετε την εγγραφή σας στην υπηρεσία Vodafone 360 Games θα πρέπει να συνδεθείτε με το Vodafone 360 με το όνομα χρήστη και τον αντίστοιχο κωδικό σας.
+helpindex0=What is Vodafone 360 Games?
+helptext0=Vodafone 360 Games allows you to play a number of games for one monthly or weekly price.
+
+purchaseCompleteTitle=Purchase completed
+purchaseCompleteText=Thank you for purchasing product.
+
+rentalCompleteTitle=Rental completed
+rentalCompleteText=Thank you for renting the product. Enjoy your rental.
+rentalValidTitle=Rental valid
+rentalValidText=You are already renting this application, you have not been charged again. You can now use the application. 
+
+errorVDEsimTitle=Error
+errorVDEsimText=You need to use Vodafone connection to use this product.
+
+info=Info
+infoWiFiTurnedOff=Your WiFi connection will be turned off for authorization, after that it will be turned on again automatically.\n\nPlease make sure your mobile connection data is enabled.
+
+terms=Terms & Conditions
+
+loadingtext=Loading...
+authenticatingtext=Authenticating...
+rembme=Remember me
+retryingtext=Retrying...
+
+tbyb0=This is a try before you buy version. You can play
+tbyb1a=times for 
+tbyb1b=time for
+tbyb2=. After that you have to pay to use the application.
+
+tbyb3a=day
+tbyb3b=days
+tbyb4a=hour
+tbyb4b=hours
+tbyb5a=minute
+tbyb5b=minutes
+tbyb6a=second
+tbyb6b=seconds

@@ -1,0 +1,80 @@
+﻿purchase=Purchase
+play=Play
+help=Help
+back=Back
+language=Language
+save=Save
+ok=OK
+exit=Exit
+continue=Retry
+cancel=Cancel
+alsoavailable=Also available
+moregames=More games
+purchaseoptions=Purchase options
+learnmore=Learn more about games
+login=Login
+loginfailed=Unable to log in
+username=Username
+password=Password
+error=Error
+discovergames=Discover other games
+thankyou=Thank you.\nYour transaction will now be verified.
+validating=A validation is required. Your content will be available shortly.
+errortransaction=We are sorry, an error occured during your transaction.\nPlease allow a network connection when asked.\nIf the issue persists please check data transfer availability and configuration.
+errorpurchaseshort=We are sorry, an error occured during your transaction.\nYour account has not been charged. Please go back and try again.
+errorpurchaselong=We are sorry, an error occured during your transaction.\nYour account has not been charged. Please allow the use of a data connection when asked.\nIf the issue persists please check data transfer availability and configuration.
+errorconnection=A successful network connection was not possible. Please ensure that this game can use a network connection! If you have allowed a network connection for this game and this problem persists, please restart the phone and try again!
+errorcredentials=This might be because\n\nYou've entered the wrong username or password\n\nTap Continue to try again
+errorunsufficientmoney=We are sorry, it seems that you are out of credit. Please top up and try again.
+gameinvalid=This Game is no more available. You can visit our shop to find out about more games available for you.
+limitedplay=A successful network connection was not possible. You may play this game for a limited time. Please ensure that this game can use a network connection! If you have allowed a network connection for this game and this problem persists, please restart the phone and try again!
+loginrequired=In order to validate the game you need to login with your username and password.
+
+purchaseCompleteTitle=Purchase completed
+purchaseCompleteText=Thank you for purchasing the product. Enjoy your purchase.
+
+purchaseValidTitle=Purchase valid
+purchaseValidText=You have already purchased this application, you have not been charged again. You can now use the application. 
+
+rentalCompleteTitle=Rental completed
+rentalCompleteText=Thank you for renting the product. Enjoy your rental.
+
+rentalValidTitle=Rental valid
+rentalValidText=You are already renting this application, you have not been charged again. You can now use the application. 
+
+errorVDEsimTitle=Error
+errorVDEsimText=You need to use mobile connection to use this product.
+
+info=Info
+infoWiFiTurnedOff=Your WiFi connection will be turned off for authorization, after that it will be turned on again automatically.\n\nPlease make sure your mobile connection data is enabled.
+
+terms=Terms & Conditions
+
+loadingtext=Loading...
+authenticatingtext=Authenticating...
+rembme=Remember me
+retryingtext=Retrying...
+
+tbybLabel=TRY IT!
+
+tbyb0=This is a free try before you buy version, you can play
+tbyb1a=time
+tbyb1b=times
+tbyb2=for
+tbyb3=. Press 'OK' to start the trial.
+
+tbyb3a=day
+tbyb3b=days
+tbyb4a=hour
+tbyb4b=hours
+tbyb5a=minute
+tbyb5b=minutes
+tbyb6a=second
+tbyb6b=seconds
+
+mansubdial_tit=Get More Apps
+mansubdial_msg=Go to the store to find more exciting applications.<br /> <br /> <a href="http://wap.uk.samsungmobile.com/touch_UI/category.jsp?diu=&m=%21dxsHk1g7H64NqI&l=&wls=T5kSTPkP%21-29731275&ca=&i=&h=N&mp3=&op=005&cs=&ts=&d=&cp=&co=&a=0&s">Get More Apps</a>
+mansubdial_dns=Don't show that again
+
+smsSendingError=Unable to send SMS. Please check that you have a mobile connection, that airplane mode is disabled and try again. Do you want to retry?
+loadingTransaction=We are now processing your transaction please wait.

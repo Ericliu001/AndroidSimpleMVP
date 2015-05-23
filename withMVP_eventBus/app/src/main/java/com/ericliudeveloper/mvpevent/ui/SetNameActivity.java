@@ -1,9 +1,9 @@
 package com.ericliudeveloper.mvpevent.ui;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +18,7 @@ import de.greenrobot.event.EventBus;
  * haven't created a presenter for this Activity yet.
  * For simple Activities or Fragments, there is no need to implement MVP
  */
-public class SetNameActivity extends ActionBarActivity {
+public class SetNameActivity extends Activity {
 
     public static final String NAME_FIELD = "name";
     Button btSetName;

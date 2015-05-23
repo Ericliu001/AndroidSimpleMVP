@@ -1,4 +1,4 @@
-package com.ericliudeveloper.mvpevent.mode;
+package com.ericliudeveloper.mvpevent.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -13,6 +13,15 @@ public class FirstModel implements Parcelable{
         LEFT, RIGHT;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    private long id;
     private Direction direction;
     private int progress;
     private String name;

@@ -1,0 +1,65 @@
+﻿purchase=Koop
+play=Speel
+help=Help
+back=Terug
+language=Taal
+save=Opslaan
+exit=Afsluiten
+continue=Doorgaan
+cancel=Annuleren
+alsoavailable=Ook beschikbaar
+moregames=Meer games
+purchaseoptions=Aankoop opties
+learnmore=Leer meer over games
+login=Login
+loginfailed=NL Unable to log in
+username=Gebruikersnaam
+password=Wachtwoord
+error=Error
+discovergames=Ontdek andere games
+thankyou=Bedankt, Je transactie wordt nu geverifiëerd
+validating=Alvorens je gebruik kan maken van de Vodafone 360 Games dienst moeten we eerst je de status van je abonnement controleren. Je games zijn zo beschikbaar.
+errortransaction=Sorry, er is een fout opgetreden.\nOm Vodafone 360 games te kunnen gebruiken dienen we de status van je abonnement te controleren. Indien gevraagd sta het maken van een internet verbinding toe. Indien de fout blijft optreden controleer je internet instellingen. Als je hulp nodig hebt kun je contact opnemen met onze Klantenservice.
+errorpurchaseshort=Sorry, er is een fout opgetreden.\nEr is geen bedrag in rekening gebracht. Ga terug en probeer opnieuw. Als de fout blijft optreden neem dan contact op met onze Klantenservice.
+errorpurchaselong=Sorry, er is een fout opgetreden.\nEr is geen bedrag in rekening gebracht. Indien gevraagd sta het maken van een internetverbinding toe. Indien de fout blijft optreden controleer je internet instellingen. Als je hulp nodig hebt kun je contact opnemen met onze Klantenservice.
+errorconnection=A successful network connection to check if your subscription is still valid was not possible. Please ensure that this game can use a network connection to check your subscription! If you have allowed a network connection for this game and this problem persists, please go to VF Shop and download the game, again!
+errorcredentials=NL This might be because\n\nYou've entered the wrong username or password\n\nOnce you've logged in, you can use all the Vodafone 360 services\n\nTap Continue to try again
+gameinvalid=This Game is no more available within Vodafone Play. Please choose one of the other exciting games from Vodafone Play by clicking on one of the games below. You can also visit our shop to find out about more games available for you within Vodafone Play.
+limitedplay=A successful network connection to check if your subscription is still valid was not possible. You may play this game for a limited time. Please ensure that this game can use a network connection to check your subscription! If you have allowed a network connection for this game and this problem persists, please go to VF Shop and download the game, again!
+loginrequired=Om je Vodafone 360 Games abonnement te valideren dien je in te loggen. Gebruik je Vodafone 360 gebruikersnaam en wachtwoord.
+helpindex0=Wat is Vodafone 360 Games?
+helptext0=Met Vodafone 360 Games heb je voor een vast bedrag maandelijks of wekelijks onbeperkt toegang tot een groot aantal games.
+
+purchaseCompleteTitle=Purchase completed
+purchaseCompleteText=Thank you for purchasing product.
+
+errorVDEsimTitle=Error
+errorVDEsimText=You need to use Vodafone connection to use this product.
+
+info=Info
+infoWiFiTurnedOff=Your WiFi connection will be turned off for authorization, after that it will be turned on again automatically.\n\nPlease make sure your mobile connection data is enabled.
+
+terms=Terms & Conditions
+
+loadingtext=Loading...
+authenticatingtext=Authenticating...
+rembme=Remember me
+retryingtext=Retrying...
+
+tbyb0=This is a try before you buy version. You can play
+tbyb1a=times for 
+tbyb1b=time for
+tbyb2=. After that you have to pay to use the application.
+
+tbyb3a=day
+tbyb3b=days
+tbyb4a=hour
+tbyb4b=hours
+tbyb5a=minute
+tbyb5b=minutes
+tbyb6a=second
+tbyb6b=seconds
+
+mansubdial_tit=Manage subsriptions
+mansubdial_msg=Click <a href="http://vodafone.de">here</a> to configurate subscription"
+mansubdial_dns=Do not show again

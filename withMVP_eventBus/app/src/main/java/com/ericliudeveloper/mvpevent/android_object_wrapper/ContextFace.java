@@ -8,4 +8,5 @@ import android.os.Bundle;
 public interface ContextFace {
 
     void startActivity(Class<?> dest, Bundle data);
+
 }

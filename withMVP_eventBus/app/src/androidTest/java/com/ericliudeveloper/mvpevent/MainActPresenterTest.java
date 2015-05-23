@@ -7,7 +7,7 @@ import android.test.mock.MockContext;
 import android.test.mock.MockCursor;
 
 import com.ericliudeveloper.mvpevent.android_object_wrapper.ContextFace;
-import com.ericliudeveloper.mvpevent.mode.FirstModel;
+import com.ericliudeveloper.mvpevent.model.FirstModel;
 import com.ericliudeveloper.mvpevent.presenter.MainActPresenter;
 
 import junit.framework.TestCase;

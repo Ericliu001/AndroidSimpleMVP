@@ -4,6 +4,9 @@ package com.ericliudeveloper.mvpevent.ui;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -33,7 +36,7 @@ public class MainFragment extends Fragment implements MainActPresenter.MainFace,
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRetainInstance(true);
+        setRetainInstance(true); // retain instances through configuration changes.
 
         // Initialise the Presenter and pass in data if any
         mPresenter = new MainActPresenter(MainFragment.this, null, new ContextWrapper(getActivity()));
@@ -42,6 +45,7 @@ public class MainFragment extends Fragment implements MainActPresenter.MainFace,
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        setHasOptionsMenu(true); // turn on menu handling in fragment
         View root = inflater.inflate(R.layout.activity_main, container, false);
         initViews(root);
         return root;
@@ -84,6 +88,28 @@ public class MainFragment extends Fragment implements MainActPresenter.MainFace,
         btIncrease.setOnClickListener(this);
     }
 
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_main, menu);
+    }
+
+
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.action_save:
+                mPresenter.menuSaveClicked();
+                return true;
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     /**
      * Called by Presenter to change displaying content

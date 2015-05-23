@@ -1,0 +1,79 @@
+﻿purchase=Kaufen
+play=Spielen
+help=Hilfe
+back=Zurück
+language=Sprache
+save=Speichern
+ok=OK
+exit=Beenden
+continue=Wiederholen
+cancel=Abbrechen
+alsoavailable=Auch verfügbar
+moregames=Mehr Spiele
+purchaseoptions=Kaufoptionen
+learnmore=Hilfe zum Kaufprozess
+login=Login
+loginfailed=Login nicht möglich
+username=Username
+password=Passwort
+error=Fehler
+discovergames=Mehr Spiele
+thankyou=Vielen Dank.\nDer Kauf wird nun durchgeführt.
+validating=Es wird eine Überprüfung durchgeführt, bitte warten Sie.
+errortransaction=Leider ist ein Fehler aufgetreten!\nBitte erlauben Sie den Aufbau einer Datenverbindung, wenn Sie danach gefragt werden.\nWenn dieser Fehler trotzdem angezeigt wird, überprüfen Sie bitte die Verbindungseinstellungen Ihres Handys und ob Sie gerade Empfang haben.
+errorpurchaseshort=Leider ist ein Fehler aufgetreten!\nDer Kauf konnte nicht erfolgreich abgeschlossen werden, Ihnen wurde nichts in Rechnung gestellt.\nBitte versuchen Sie es später noch einmal.
+errorpurchaselong=Leider ist ein Fehler aufgetreten!\nDer Kauf konnte nicht erfolgreich abgeschlossen werden, Ihnen wurde nichts in Rechnung gestellt.\nBitte erlauben Sie den Aufbau einer Datenverbindung wenn Sie danach gefragt werden.\nWenn dieser Fehler trotzdem angezeigt wird, überprüfen Sie bitte die Verbindungseinstellungen Ihres Handys und ob Sie gerade Empfang haben.
+errorconnection=Es konnte keine Netzwerkverbindung aufgebaut werden. Falls Sie einer Netzwerkverbindung zugestimmt haben aber das Problem weiter besteht versuchen Sie es bitte später erneut.
+errorcredentials=Folgende Gründe sind möglich\n\nDer Benutzername oder das Passwort ist falsch\n\nOhne Anmeldung sind die Vodafone 360-Dienste nicht verfügbar\n\nWeiter tippen, um es erneut zu versuchen
+errorunsufficientmoney=Leider haben Sie anscheinend nicht genug Guthaben. Bitte laden Sie Ihre Karten auf und versuchen Sie es erneut.
+gameinvalid=Die Applikation kann nicht mehr validiert werden. Bitte gehen Sie in den Shop und laden Sie eine andere Applikation herunter.
+limitedplay=Eine erfolgreiche Netzwerkverbindung konnte nich aufgebaut werden. Sie können die Applikation für eine begrenzte Zeit nutzen. Bitte stellen Sie sicher, dass eine Netzwerkverbindung hergestellt werden darf!
+loginrequired=Um die Applikation nutzen zu können, müssen Sie sich mit Ihrem Usernamen und Passwort authentifizieren.
+
+purchaseCompleteTitle=Kauf erfolgreich
+purchaseCompleteText=Vielen Dank für den Kauf.
+
+purchaseValidTitle=Kauf erfolgreich
+purchaseValidText=Sie haben diese Applikation bereits gekauft, Ihnen wurde nichts berechnet. Sie können die Applikation jetzt verwenden.
+
+rentalCompleteTitle=Rental completed
+rentalCompleteText=Thank you for renting the product. Enjoy your rental.
+rentalValidTitle=Rental valid
+rentalValidText=You are already renting this application, you have not been charged again. You can now use the application. 
+
+errorVDEsimTitle=Error
+errorVDEsimText=Ein Kauf ist nur über eine Mobilfunk-Datenverbindung möglich. Bei WLAN-Verbindung diese bitte vorübergehend abschalten.
+
+info=Info
+infoWiFiTurnedOff=Sie haben W-Lan aktiviert und können leider nicht authentifiziert werden. W-Lan wird deaktiviert und nach der Authentisierung automatisch wieder aktiviert. Bitte stellen Sie sicher das Ihre Mobilfunkverbindung aktiviert ist.
+
+terms=Nutzungsbedingungen
+
+loadingtext=Lädt...
+authenticatingtext=Authentisierung...
+rembme=Remember me
+retryingtext=Retrying...
+
+tbybLabel=Jetzt ausprobieren!
+
+tbyb0=Jetzt die Vollversion unverbindlich testen: Spielen Sie dieses Game 
+tbyb1a=mal komplett kostenlos!  
+tbyb1b=mal komplett kostenlos!
+tbyb2=für
+tbyb3=. Drücken Sie 'OK' um den Test zu starten.
+
+tbyb3a=Tag
+tbyb3b=Tage
+tbyb4a=Stunde
+tbyb4b=Stunden
+tbyb5a=Minute
+tbyb5b=Minuten
+tbyb6a=Sekunde
+tbyb6b=Sekunden
+
+mansubdial_tit=Mehr Spiele
+mansubdial_msg=Klicken Sie <a href="http://live.vodafone.com/games">hier</a> um weitere tolle Applikationen zu entdecken.
+mansubdial_dns=Nicht mehr anzeigen
+
+smsSendingError=Es können keine SMS versandt werden. Bitte stellen Sie sicher, dass Sie eine Mobilfunkverbindung haben, dass der Flugmodus deaktiviert ist und versuchen Sie es erneut. Erneut versuchen?
+loadingTransaction=Ihre Transaktion wird bearbeitet, bitte warten Sie.

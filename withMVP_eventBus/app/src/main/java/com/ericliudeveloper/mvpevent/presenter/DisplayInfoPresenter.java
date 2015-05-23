@@ -2,7 +2,7 @@ package com.ericliudeveloper.mvpevent.presenter;
 
 import android.os.Bundle;
 
-import com.ericliudeveloper.mvpevent.mode.FirstModel;
+import com.ericliudeveloper.mvpevent.model.FirstModel;
 
 /**
  * Created by liu on 14/05/15.

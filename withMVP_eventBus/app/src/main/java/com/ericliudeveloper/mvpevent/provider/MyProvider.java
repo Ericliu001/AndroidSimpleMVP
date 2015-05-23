@@ -27,8 +27,8 @@ public class MyProvider extends ContentProvider {
         final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
         final String authority = ProviderContract.CONTENT_AUTHORITY;
 
-        matcher.addURI(authority, FirstModelTable.TABLE_FIRSTMODEL, FIRST_MODELS);
-        matcher.addURI(authority, FirstModelTable.TABLE_FIRSTMODEL + "/*", FIRST_MODELS_ID);
+        matcher.addURI(authority, ProviderContract.PATH_FIRSTMODEL, FIRST_MODELS);
+        matcher.addURI(authority,  ProviderContract.PATH_FIRSTMODEL + "/*", FIRST_MODELS_ID);
         return matcher;
     }
 
@@ -57,13 +57,12 @@ public class MyProvider extends ContentProvider {
         final int match = sUriMatcher.match(uri);
 
 
+        final SelectionBuilder builder;
         switch (match) {
-            default:
-                throw new UnsupportedOperationException("Unknow uri: " + uri);
+
 
             case FIRST_MODELS:
-                final SelectionBuilder builder = new SelectionBuilder();
-
+                builder = new SelectionBuilder();
                 builder.table(FirstModelTable.TABLE_FIRSTMODEL);
                 builder.where(selection, selectionArgs);
 
@@ -75,6 +74,24 @@ public class MyProvider extends ContentProvider {
                 };
 
                 return builder.query(db, projection, null);
+
+            case FIRST_MODELS_ID:
+                builder = new SelectionBuilder();
+                builder.table(FirstModelTable.TABLE_FIRSTMODEL);
+                builder.where(selection, selectionArgs);
+
+                projection = new String[]{
+                        FirstModelTable.COL_ID,
+                        FirstModelTable.COL_DIRECTION,
+                        FirstModelTable.COL_PROGRESS,
+                        FirstModelTable.COL_NAME,
+                };
+
+                return builder.query(db, projection, null);
+
+
+            default:
+                throw new UnsupportedOperationException("Unknow uri: " + uri);
         }
     }
 

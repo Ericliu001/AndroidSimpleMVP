@@ -1,5 +1,6 @@
 package com.ericliudeveloper.mvpevent.android_object_wrapper;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,6 +27,11 @@ public class ContextWrapper implements ContextFace {
         Intent intent = new Intent(mContext, dest);
         if (data != null) {
             intent.putExtras(data);
+        }
+
+        if (! (mContext instanceof Activity)){
+            // System will throw an Exception if you try to call startActivity from outside an Activity without having the flag
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         }
         mContext.startActivity(intent);
     }

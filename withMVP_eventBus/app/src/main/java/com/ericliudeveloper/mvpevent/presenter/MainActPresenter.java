@@ -4,8 +4,10 @@ import android.os.Bundle;
 
 import com.ericliudeveloper.mvpevent.MyEvents;
 import com.ericliudeveloper.mvpevent.android_object_wrapper.ContextFace;
+import com.ericliudeveloper.mvpevent.model.DaoFactory;
+import com.ericliudeveloper.mvpevent.model.FirstModel;
+import com.ericliudeveloper.mvpevent.model.FirstModelDAO;
 import com.ericliudeveloper.mvpevent.ui.DisplayInfoActivity;
-import com.ericliudeveloper.mvpevent.mode.FirstModel;
 import com.ericliudeveloper.mvpevent.ui.SetNameActivity;
 
 import de.greenrobot.event.EventBus;
@@ -54,6 +56,8 @@ public class MainActPresenter implements PresenterFace {
         firstModel.setName(name);
         fragment.showName(name);
     }
+
+
 
     /**
      * The interface for the corresponding Activity to implement;
@@ -145,6 +149,14 @@ public class MainActPresenter implements PresenterFace {
         Bundle data = new Bundle();
         data.putParcelable(MAIN_PRESENTER_DATA, firstModel);
         mContext.startActivity(DisplayInfoActivity.class, data);
+    }
+
+    public void menuSaveClicked() {
+        DaoFactory daoFactory = DaoFactory.getDaoFactory(DaoFactory.DaoFactoryType.CONTENT_PROVIDER);
+        FirstModelDAO firstModelDAO = daoFactory.getFirstModelDAO();
+        if (firstModel != null){
+            firstModelDAO.saveFirstModel(firstModel);
+        }
     }
 
 }
