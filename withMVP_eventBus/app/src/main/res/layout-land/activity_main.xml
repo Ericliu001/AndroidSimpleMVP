@@ -1,0 +1,98 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/hello_world"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/tvTop"
+            android:text="Go Left" />
+
+        <Button
+            android:id="@+id/btRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/progressBar"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="Go Right" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/btLeft"
+            android:layout_marginTop="29dp"
+            android:layout_toLeftOf="@+id/btRight"
+            android:indeterminate="false" />
+
+        <Button
+            android:id="@+id/btIncrease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/progressBar"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp"
+            android:text="Increase" />
+
+        <Button
+            android:id="@+id/btGoToSecond"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/btIncrease"
+            android:text="Go to the SetName Activity" />
+
+        <TextView
+
+            android:id="@+id/tvDisplayName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:hint="Name goes  here."
+            android:text="No Name"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/holo_orange_dark" />
+
+        <Button
+            android:id="@+id/btGotoDoNothing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/btRight"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/btRight"
+            android:text="Go to DoNothing Activity" />
+
+    </LinearLayout>
+</ScrollView>
