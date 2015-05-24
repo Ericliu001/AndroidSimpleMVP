@@ -10,6 +10,8 @@ import com.ericliudeveloper.mvpevent.MyApplication;
 import com.ericliudeveloper.mvpevent.provider.FirstModelTable;
 import com.ericliudeveloper.mvpevent.provider.ProviderContract;
 
+import java.util.List;
+
 /**
  * Created by liu on 23/05/15.
  */
@@ -56,10 +58,7 @@ public class ProviderDaoFactory extends DaoFactory {
 
         @Override
         public long saveFirstModel(FirstModel firstModel) {
-            ContentValues values = new ContentValues();
-            values.put(FirstModelTable.COL_DIRECTION, firstModel.getDirection().name());
-            values.put(FirstModelTable.COL_PROGRESS, firstModel.getProgress());
-            values.put(FirstModelTable.COL_NAME, firstModel.getName());
+            ContentValues values = getContentValues(firstModel);
 
             Uri uri = resolver.insert(ProviderContract.FirstModels.CONTENT_URI, values);
 
@@ -69,6 +68,29 @@ public class ProviderDaoFactory extends DaoFactory {
             long id = Long.valueOf(firstModel_id);
             firstModel.setId(id);
             return id;
+        }
+
+        @Override
+        public void bulkInsertFirstModelList(List<FirstModel> list) {
+            ContentValues[] valuesArray = new ContentValues[list.size()];
+            int index = 0;
+            for(FirstModel firstModel: list){
+                ContentValues values = getContentValues(firstModel);
+
+                valuesArray[index] = values;
+                index++;
+            }
+
+            //TODO move the bulk insert into a Service
+            int count = resolver.bulkInsert(ProviderContract.FirstModels.CONTENT_URI, valuesArray);
+        }
+
+        private ContentValues getContentValues(FirstModel firstModel) {
+            ContentValues values = new ContentValues();
+            values.put(FirstModelTable.COL_DIRECTION, firstModel.getDirection().name());
+            values.put(FirstModelTable.COL_PROGRESS, firstModel.getProgress());
+            values.put(FirstModelTable.COL_NAME, firstModel.getName());
+            return values;
         }
     }
 }
